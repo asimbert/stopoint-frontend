@@ -1,0 +1,8 @@
+cron:
+- description: daily sumamry job
+  url: /reminder.php
+  schedule: every 24 hours
+  
+- description: daily expired job
+  url: /expired.php
+  schedule: every 24 hours

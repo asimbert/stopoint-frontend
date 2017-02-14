@@ -1,0 +1,98 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: comicsansms;
+    src: url(comic.ttf);
+}
+
+.g5b-main-area {
+    margin: auto;
+    width: 1300px;
+}
+
+.give5b-main {
+    background: url(background.jpg) center;
+    height: 427px;
+}
+
+.g5b-logo {
+    display: block;
+    margin-top: 70px;
+    float: left;
+    width: 500px;
+    height: auto;
+}
+
+.g5b-right {
+    width: 650px;
+    margin-top: 120px;
+    float: right;
+}
+
+.g5b-text {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    font-family: comicsansms;
+}
+
+.g5b-button {
+    margin: auto;
+    margin-top: 30px;
+    background: url(button.png);
+    width: 199px;
+    height: 60px;
+    transition: all 0.5s;
+}
+
+.g5b-button:hover {
+    background: url(button-hover.png);
+}
+
+@media (max-width:1300px) {
+    .g5b-main-area {
+        width: 100%;
+    }
+}
+
+@media (max-width:1170px) {
+    .g5b-logo {
+        width: 290px;
+        margin: auto;
+        margin-top: auto;
+        float: none;
+    }
+    .g5b-right {
+        margin: auto;
+        margin-top: auto;
+        float: none;
+    }
+}
+
+@media (max-width:660px) {
+    .g5b-right {
+        width: 100%;
+    }
+    .g5b-text {
+        font-size: 20px;
+        padding: 5px;
+    }
+}
+
+@media (max-width:440px) {
+    .g5b-button {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width:380px) {
+    .g5b-text {
+        font-size: 18px;
+    }
+    .g5b-button {
+        margin-top: 5px;
+    }
+}

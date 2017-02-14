@@ -1,0 +1,22 @@
+User-Agent:*
+
+Disallow: /*page
+Disallow: /*author
+Disallow: /*tag
+Disallow: /*?generation=
+Disallow: /*?specification=
+Disallow: /*?id=
+Disallow: /*?checkout=
+Disallow: /*?carrier=
+Disallow: /*?family=
+Disallow: /*?phone=
+
+
+
+Sitemap: https://www.stopoint.com/sitemap.xml
+
+
+
+
+
+

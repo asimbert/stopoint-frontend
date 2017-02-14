@@ -1,0 +1,534 @@
+<?php
+//header( "HTTP/1.1 301 Moved Permanently" ); 
+require("inc/config.php");
+
+/**
+ * @file
+ * Provide basic mod_rewrite like functionality.
+ *
+ * Pass through requests for root php files and forward all other requests to
+ * index.php with $_GET['q'] equal to path. The following are examples that
+ * demonstrate how a request using mod_rewrite.php will appear to a PHP script.
+ *
+ * - /install.php: install.php
+ * - /update.php?op=info: update.php?op=info
+ * - /foo/bar: index.php?q=/foo/bar
+ * - /: index.php?q=/
+ */
+ $url = $_SERVER['REQUEST_URI'];
+
+$expurl = explode("?",$url);
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+$sell = substr($path, 0, 6);
+
+$r = explode('/', $path);
+$r = array_filter($r);
+$r = array_merge($r, array()); 
+ 
+ $r2 = $r[2];
+ $r3 = $r[3];
+ $r4 = $r[4];
+ $r5 = $r[5];
+ $r6 = $r[6];
+ $r7 = $r[7];
+ $r8 = $r[8];
+ $r9 = $r[9];
+		 
+// Provide mod_rewrite like functionality. If a php file in the root directory
+// is explicitly requested then load the file, otherwise load index.php and
+// set get variable 'q' to $_SERVER['REQUEST_URI'].
+if (dirname($path) == '/' && pathinfo($path, PATHINFO_EXTENSION) == 'php') {
+	
+	
+	if($expurl[0] == "/recycling.php"){
+	header('Location: https://www.stopoint.com/recycling');
+	}
+	else if($expurl[0] == "/contact.php"){
+	header('Location: https://www.stopoint.com/contact');
+	}
+	
+	else if($expurl[0] == "/privacypolicy.php"){
+	header('Location: https://www.stopoint.com/privacypolicy');
+	}
+	
+	else if($expurl[0] == "/login.php"){
+	header('Location: https://www.stopoint.com/login');
+	}
+	else if($expurl[0] == "/pressrelease.php"){
+	header('Location: https://www.stopoint.com/press');
+	}
+	else if($expurl[0] == "/gadgets.php"){
+	header('Location: https://www.stopoint.com/sell/gadgets');
+	}
+	else if($expurl[0] == "/watch.php"){
+	header('Location: https://www.stopoint.com/sell/watch');
+	}
+	else if($expurl[0] == "/ipod.php"){
+	header('Location: https://www.stopoint.com/sell/ipod');
+	}
+	else if($expurl[0] == "/tablets.php"){
+	header('Location: https://www.stopoint.com/sell/tablet');
+	}
+	else if($expurl[0] == "/computers.php"){
+	header('Location: https://www.stopoint.com/sell/computers');
+	}
+	else if($expurl[0] == "/cellphone.php"){
+	header('Location: https://www.stopoint.com/sell/cell-phone');
+	}
+	else{
+ $file = pathinfo($path, PATHINFO_BASENAME);
+	}
+ //$_GET['q'] = $path;
+}
+else {
+	
+	if($sell == '/sell-' && $r[0] != 'sell-now'){
+		$rsell = explode('/', $sell);
+		
+	 $querysell =  "SELECT product.id as productid, productcategory.Name as catname from product INNER JOIN `carriers` ON carriers.id=product.CarrierId INNER JOIN `productfamily` ON productfamily.id=product.FamilyId INNER JOIN `productcategory` ON productcategory.id=product.CategoryId WHERE product.id =".$r[1];
+	$resultsell = mysql_query($querysell);
+	$resultdata = mysql_fetch_array($resultsell);
+	if($resultdata['catname'] == 'Cell Phone'){
+		$_GET['model'] = $resultdata['productid'];
+		$file = 'cellphone.php';
+		}
+	else if($resultdata['catname'] == 'Computers'){
+		$_GET['model'] = $resultdata['productid'];
+		$file = 'computer.php';
+		}
+		
+	else if($resultdata['catname'] == 'Tablets'){
+		$_GET['model'] = $resultdata['productid'];
+		$file = 'tablets.php';
+		}
+		
+	else if($resultdata['catname'] == 'Watches'){
+		$_GET['model'] = $resultdata['productid'];
+		$file = 'watch.php';
+		}
+		
+	else if($resultdata['catname'] == 'iPod'){
+		$_GET['model'] = $resultdata['productid'];
+		$file = 'ipod.php';
+		}
+		
+	else if($resultdata['catname'] == 'gadgets'){
+		$_GET['model'] = $resultdata['productid'];
+		$file = 'gadgets.php';
+		}
+
+		}
+	
+	else if($r[0] == 'sell' && $r[1] == 'cell-phone'){
+		
+		if($r3 == '' && $r4 == ''){
+		if($r[2] == 'iphone'){
+			$_GET['id'] = 'Apple';
+			}
+		else{
+			$_GET['id'] = $r[2];
+			}
+		$file = 'cellphone.php';
+		}
+		
+	
+	
+	 if($r3 != '' && $r4 == ''){
+		
+		 $value = str_replace("-"," ",$r3);
+		$_GET['phone'] = $value;
+		if($r[2] == 'iphone'){
+			$_GET['id'] = 'Apple';
+			}
+		else{
+			$_GET['id'] = $r[2];
+			}
+		$_GET['ps'] = 'true';
+		$file = 'cellphone.php';
+	}
+	
+	
+	
+	 if($r4 != '' && $r5 == ''){
+		
+		if($r4 == 'T-Mobile'){
+			$value1 = str_replace("-", "-",$r4);
+			}
+		else{
+		$value1 = str_replace("-", "",$r4);
+		}
+		$_GET['carrier'] = $value1;
+		$file = 'cellphone.php';
+	}
+	
+	
+	if($r5 != ''){
+		
+		
+		$_GET['model'] = $r5;
+		$file = 'cellphone.php';
+	}
+	
+	
+	}
+	
+	
+	else if($r[0] == 'sell' && $r[1] == 'computers'){
+		
+		if($r3 == '' && $r4 == ''){
+		if($r[2] == 'Apple'){
+			$_GET['id'] = 'Apple';
+			}
+		else{
+			$_GET['id'] = $r[2];
+			}
+		$file = 'computers.php';
+		}
+		
+	
+	
+	 if($r3 != '' && $r4 == ''){
+		
+		 $value = str_replace("-"," ",$r3);
+		$_GET['specification'] = $value;
+		$_GET['id'] = $r[2];
+		$_GET['ps'] = 'true';
+		$file = 'computers.php';
+	}
+	
+	 if($r4 != '' && $r5 != '' && $r7 == ""){
+		
+		$value1 = str_replace("-", " ",$r4);
+		$value2 = str_replace("-", " ",$r5);
+		$value3 = str_replace("-", " ",$r6);
+		$_GET['computer'] = $value1;
+		$_GET['process'] = $value2;
+		$_GET['screen'] = $value3;
+		
+		$file = 'computers.php';
+	}
+	
+	 
+	if($r7 != ''){
+		$_GET['model'] = $r7;
+		$file = 'computers.php';
+	}
+	
+	
+	}
+	
+	else if($r[0] == 'sell' && $r[1] == 'gadgets'){
+		
+		if($r3 == '' && $r4 == ''){
+		if($r[2] == 'Apple'){
+			$_GET['id'] = 'Apple';
+			}
+		else{
+			$_GET['id'] = $r[2];
+			}
+		$file = 'gadgets.php';
+		}
+		
+	
+	
+	 if($r3 != '' && $r4 == ''){
+		
+		 $value = str_replace("-"," ",$r3);
+		$_GET['family'] = $value;
+		$file = 'gadgets.php';
+	}
+	
+	 if($r4 != '' && $r5 == ''){
+		
+		$value1 = str_replace("-", "",$r4);
+		$_GET['generation'] = $value1;
+		$file = 'gadgets.php';
+	}
+	
+	
+	if($r5 != ''){
+		
+		
+		$_GET['model'] = $r5;
+		$file = 'gadgets.php';
+	}
+	
+	
+	}
+	
+	else if($r[0] == 'sell' && $r[1] == 'watch'){
+		
+		if($r[1] != "" && $r2 == ''){
+		$file = 'watch.php';
+		}
+		if($r[2] != "" && $r3 == '' && $r4 == ''){
+		if($r[2] == 'Apple-Watch'){
+			$value = str_replace("-"," ",$r[2]);
+			
+			$_GET['id'] = $value;
+			}
+		else{
+			$_GET['id'] = $r[2];
+			}
+		$file = 'watch.php';
+		}
+		
+	
+	
+	 if($r3 != '' && $r4 == ''){
+		
+		 $value = str_replace("-"," ",$r[3]);
+		$_GET['specification'] = $value;
+		$file = 'watch.php';
+	}
+	
+	 if($r4 != '' && $r5 == ''){
+		
+		$_GET['model'] = $r4;
+		$file = 'watch.php';
+	}
+	
+	
+	}
+	
+	else if($r[0] == 'sell' && $r[1] == 'ipod'){
+		
+		if($r2 == '' && $r3 == ''){
+		if($r[1] == 'ipod'){
+			$_GET['id'] = 'ipod';
+			}
+		else{
+			$_GET['id'] = $r[1];
+			}
+		$file = 'ipod.php';
+		}
+		
+	
+	
+	 if($r2 != '' && $r3 == ''){
+		
+		 $value = str_replace("-"," ",$r2);
+	
+	$_GET['id'] = 'ipod';
+		$_GET['ps'] = 'true';
+		$_GET['family'] = $value;
+		
+		$file = 'ipod.php';
+	}
+	
+	 if($r3!= '' && $r4 == ''){
+		
+		$value1 = str_replace("-", " ",$r3);
+		$_GET['generation'] = $value1;
+		$file = 'ipod.php';
+	}
+	
+	
+	if($r5 != ''){
+		
+		
+		$_GET['model'] = $r5;
+		$file = 'ipod.php';
+	}
+	
+	
+	}
+	
+	else if($r[0] == 'sell' && $r[1] == 'tablet'){
+		
+		if($r3 == '' && $r4 == ''){
+		if($r[2] == 'ipad'){
+			$_GET['id'] = 'Apple';
+			}
+		else{
+			$_GET['id'] = $r[2];
+			}
+		$file = 'tablets.php';
+		}
+		
+	
+	
+	 if($r3 != '' && $r4 == ''){
+		
+		 $value = str_replace("-"," ",$r3);
+		$_GET['family'] = $value;
+		$_GET['id'] = $r[2];
+		$_GET['ps'] = 'true';
+		$file = 'tablets.php';
+	}
+	
+	 if($r2 == 'Apple' && $r4 != '' && $r5 == ''){
+		
+		$value1 = str_replace("-", " ",$r4);
+		$_GET['generation'] = $value1;
+		$file = 'tablets.php';
+	}
+	
+	
+	if($r5 != ''){
+		
+		
+		$_GET['model'] = $r5;
+		$file = 'tablets.php';
+	}
+	
+	
+	}
+	
+	else if($r[0] == 'about'){
+		$file = 'about.php';
+		}
+	
+	else if($r[0] == 'logout'){
+		$file = 'logout.php';
+		}
+	
+	else if($r[0] == 'checkout'){
+		if($r[1] == 'err_msg' && $r[2] == 'true'){
+			$_GET['err_msg'] = 'already_error';
+			$_GET['checkout'] = 'true';
+			}
+		if($r[1] == 'true'){
+		$_GET['checkout'] == 'true';
+			}
+		$file = 'checkout.php';
+		}
+	
+	else if($r[0] == 'privacypolicy'){
+		$file = 'privacypolicy.php';
+		}
+	else if($r[0] == 'termsconditions'){
+		$file = 'termsconditions.php';
+	}
+	else if($r[0] == 'legal'){
+		$file = 'lawenforcement.php';
+		}
+	else if($r[0] == 'recycling'){
+		$file = 'recycling.php';
+		}
+	else if($r[0] == 'press'){
+		$file = 'pressrelease.php';
+		}
+	else if($r[0] == 'contact'){
+		$file = 'contact.php';
+		}
+	else if($r[0] == 'login'){
+		
+		$file = 'login.php';
+		}
+	else if($r[0] == 'checkout2'){
+		
+		$file = 'checkout2.php';
+		}
+	else if($r[0] == 'confirmpayment'){
+		
+		$file = 'confirmpayment.php';
+		}
+	else if($r[0] == 'my-account'){
+		
+		if($r[1] == 'updatesuccess'){
+			$_GET['err_msg'] = 'updatesuccess';
+			}
+		if($r[1] == 'updateerror'){
+			$_GET['err_msg'] = 'updateerror';
+			}
+		if($r[1] == 'tab2'){
+			$_GET['tab'] = 'tab2';
+			}
+		if($r[1] == 'tab3'){
+			$_GET['tab'] = 'tab3';
+			}
+		if($r[1] == 'tab5'){
+			$_GET['tab'] = 'tab5';
+			}
+		if($r[1] == 'tab6'){
+			$_GET['tab'] = 'tab6';
+			}
+		
+		
+		
+		$file = 'dashboard.php';
+		}
+	else if($r[0] == 'help'){
+		$file = 'help.php';
+		}
+	else if($r[0] == 'reviews'){
+		
+		if($r[1] == 'pos' && $r[2] != 'page' ){
+			$_GET['pos'] = 'pos';
+			
+			}
+		if($r[1] == 'neg' && $r[2] != 'page'){
+			$_GET['neg'] = 'neg';
+			}
+		if($r[1] == 'recent' && $r[2] != 'page'){
+			$_GET['recent'] = 'recent';
+			}
+		if($r[1] != '' && $r[2] != ''){
+			$_GET['page'] = $r[3];
+			}
+		if($r[1] == 'page'){
+			$_GET['page'] = $r[2];
+			}
+		
+		$file = 'testimonials.php';
+		}
+		
+	else if($r[0] == 'create-account'){
+		if($r[1] == 'already_error'){
+			$_GET['err_msg'] = 'alredy_error';
+			}
+		if($r[1] == 'reg_error'){
+			$_GET['err_msg'] = 'reg_error';
+			}
+			
+		if($r[1] == 'true'){
+			$_GET['checkout'] = 'true';
+			}
+		$file = 'register.php';
+		}
+		
+	else if($r[0] == 'sell-now'){
+		$file = 'easysteps.php';
+		}
+		
+	else if($r[0] == 'login_process'){
+		$file = 'login_process.php';
+		}
+	else if($r[0] == 'index'){
+		header("HTTP/1.1 301 Moved Permanently");
+  header("Location: https://"."www.stopoint.com");
+  header("Connection: close");
+  die();
+		//header("Location: https://www.stopoint.com", true, 301);
+		
+		
+		}
+		
+	
+	else if($path == '/'){
+	//header( "HTTP/1.1 301 Moved Permanently" ); 
+	
+  $file = 'index.php';
+ 
+	}
+	else{
+		$file = '404.php';
+		}
+  // Provide mod_rewrite like functionality by using the path which excludes
+  // any other part of the request query (ie. ignores ?foo=bar).
+  $_GET['q'] = $path;
+  //echo $_GET['q'];
+  //exit;
+	
+}
+
+// Override the script name to simulate the behavior without mod_rewrite.php.
+// Ensure that $_SERVER['SCRIPT_NAME'] always begins with a / to be consistent
+// with HTTP request and the value that is normally provided.
+$_SERVER['SCRIPT_NAME'] = '/' . $file;
+
+require $file;
+
+?>

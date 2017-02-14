@@ -1,0 +1,2 @@
+[12-Dec-2014 09:39:16 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/azaheer/public_html/nigeria_says/signtwitter/index.php:72) in /home4/azaheer/public_html/nigeria_says/signtwitter/index.php on line 117
+[12-Dec-2014 09:39:44 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/azaheer/public_html/nigeria_says/signtwitter/index.php:72) in /home4/azaheer/public_html/nigeria_says/signtwitter/index.php on line 117

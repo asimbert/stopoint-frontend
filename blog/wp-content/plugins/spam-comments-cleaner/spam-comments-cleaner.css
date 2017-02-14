@@ -1,0 +1,25 @@
+#scc-form-buttons > div {
+    display: inline-block;
+    width: 45%;
+}
+#scc-form-buttons .button-primary {
+    width: 200px;
+}
+.otherlinks {
+    background-color: green;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 20px;
+    position: absolute;
+    right: 5%;
+}
+.quicklinks h3 {
+    color: #c0c0c0;
+}
+.quicklinks.other_plugins > p {
+    color: #fff;
+    font-size: 15px;
+}
+.quicklinks a {
+    color: #ff0000;
+}

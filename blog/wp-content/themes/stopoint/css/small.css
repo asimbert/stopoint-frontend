@@ -1,0 +1,47 @@
+		/*Header*/
+.tooltip {
+	opacity: 0.0;
+	width:350px;
+	-webkit-transition: all 500ms ease-in-out;
+	-moz-transition: all 500ms ease-in-out;
+	-ms-transition: all 500ms ease-in-out;
+	-o-transition: all 500ms ease-in-out;
+	transition: all 500ms ease-in-out;
+}	
+.tooltip_heading{
+	background: rgba(0, 0, 0, 0) url("images/help_button.png") no-repeat scroll 0 0;
+	color: #266986 !important;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	padding: 4px 0 10px 28px !important;
+}			
+.tooltip_heading:hover + .tooltip {
+	opacity: 1.0;
+	background-color:#ffffff;
+	width:350px;
+	border: 1px solid #999;
+	padding:10px;
+}
+.mobiletestimonials{
+	display:none;
+}
+                        
+@media (max-width: 768px) {	
+	.navbar-brand {
+		display:none;
+	}
+	.testimonials{
+		display:none;
+	}
+	.mobiletestimonials{
+		display:block;
+	}
+}
+
+		/*Dashboard*/
+.invalid input:required:invalid {
+	border-color:red;
+}
+.invalid input:required:valid {
+	border-color:green;
+}

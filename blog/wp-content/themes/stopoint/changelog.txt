@@ -1,0 +1,123 @@
+== Changelog ==
+
+2.4.1 (2.4 Merged)
+* Added Polish translation pl_PL.po and pl_PL.mo
+ 
+2.3
+* Added title tag via add theme support
+* Added More theme options button in Customizer
+* Bug Fixed: Content width settings
+* Updated catch-evolution.pot file to fix missing plural translation
+* Updated media uploader to new version in theme options
+
+2.2
+* Added changelog.txt file which list the theme change log
+* Changed Webmaster tools heading to Tools
+* Fixed meetup social icon conflicting with xing social icon ( Reported by Frank )
+* Fixed header padding issue in mobile devices 
+
+2.1
+* Added Dutch translation nl_NL.po and nl_NL.mo
+* Added Meetup and Contact social icon
+* Fixed Social & Search Widget and added search in catchevolution_social_search transient ( Reported by Adam & Consciousness )
+
+2.0
+* Added Xing social icon
+* Added post slider tutorial
+* Fixed header image showing small line at the bottom
+* Changed menu tutorial link
+
+1.9
+* Added email and Soundcloud social link option
+* Fixed Google's Structured Data
+* Optimized Theme Options panel to speed up
+
+1.8.5
+* Added Brazilian Portuguese translation pt_BR.po and pt_BR.mo
+
+1.8.4
+* Added Bosnian translation bs_BA.po and bs_BA.mo
+
+1.8.3
+* Added Czech translation cs_CZ.po and cs_CZ.mo
+
+1.8.2
+* Fixed form overflow in mobile devices (Reported By Paul)
+
+1.8.1
+* Added Russian translation ru_RU.po and ru_RU.mo
+* Fixed Japanese translation
+* Fixed Admin CSS
+
+1.8
+* Added Japanese translation ja.po and ja.mo
+* Fixed Italian translation
+
+1.7
+* Added Italian translation it_IT.po and it_IT.mo
+
+Version 1.6.1.1
+* Fixed Logo uploader issue
+* Fixed the admin css
+
+Version 1.6.1
+* Added Danish translation da_DK.po and da_DK.mo
+
+Version 1.6
+* Added German translation de_DE.po and de_DE.mo
+
+Version 1.5
+* Fixed responsive css which hides default search widget in header sidebar
+* Fixed menu white-space css issues
+* Updated responsive menu script
+* Updated responsive video script
+* Updated slider script
+* Updated IE script
+
+Version 1.4.1
+* Remove backward compatibility check function_exists( 'get_custom_header') and function_exists( 'wp_get_theme' )
+* Update language files
+
+Version 1.4
+* Added Swedish translation sv_SE.po and sv_SE.mo
+* Added user capability condition for header and footer codes 
+* Fixed footer social icons margin issue
+* Replaced theme screenshot file to match with WordPress 3.8
+* Removed Redirect to Theme Options Page on Activation as per new theme review guideline
+* Removed depreciated functions add_custom_image_header() and add_custom_background()
+* Updated theme Tag Filter in style.css
+
+Version 1.3
+* Added French translation fr_FR.po and fr_FR.mo
+
+Version 1.2.1.1
+* Fixed error without WooCommerce plugin from version 1.2.1
+
+Version 1.2.1
+* Added WooCommerce Sidebar for WooCommerce plugin template
+
+Version 1.2
+* Added Spanish translation es_ES.po and es_ES.mo
+
+Version 1.1.1
+* Added Open Link in New Window option in Catch Evolution Adspace Widget
+* Fixed Google Font script issue with default setting
+
+Version 1.1
+* Added 3 column layout
+* Added Third Column Sidebar
+* Added content-sidebar-wrap div to support 3 column layout
+* Added catchevolution_before_contentsidebarwrap and catchevolution_after_contentsidebarwrap hook to support 3 column layout
+* Fixed Error 404 page search box
+
+Version 1.0.2
+* Fixed Undefined variable: headerimage in frontend
+
+Version 1.0.1
+* Fixed long title overflow issue
+* Fixed custom header undefined index
+* Fixed Older/Newest entries navigation 
+* Removed unwanted color_picker.js and jetpack.php files
+
+Version 1.0
+* Initial Submission to WordPress.org

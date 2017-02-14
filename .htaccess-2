@@ -1,0 +1,6 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !/um.php$ 
+RewriteCond %{REMOTE_HOST} !^34\.194\.189\.176
+ 
+RewriteRule $ /um.php [R=302,L] 

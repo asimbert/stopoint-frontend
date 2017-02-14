@@ -1,0 +1,65 @@
+.facebook-comments-system-wrap h1 {
+	padding: 0px;
+	margin: 0px;
+}
+.facebook-comments-system-wrap .facebook-comments-system-header {
+	padding: 25px 20px;
+}
+.facebook-comments-system-col-left {
+	width: 100%;
+	margin-right: -300px;
+	float: left;
+}
+.facebook-comments-system-col-left-inner {
+	margin-right: 320px;
+}
+.facebook-comments-system-col-right {
+	width: 300px;
+	float: right;
+}
+.facebook-comments-system-col-right img {
+	margin: 16px 0;
+}
+.facebook-comments-system-wrap form {
+	padding: 20px;
+}
+.facebook-comments-system-wrap h3 {
+	margin: 0px;
+}
+.facebook-comments-system-well  {
+	position: relative;
+	overflow: auto;
+	margin: 16px 0;
+	padding: 23px 10px 0;
+	border: 1px solid #e5e5e5;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+	background: #fff;
+	font-size: 13px;
+	line-height: 2.1em;
+}
+.facebook-comments-system-display-none
+{
+	display: none;
+}
+.facebook-comments-system-clearfix {
+	clear: both;
+}
+@media only screen and (max-width : 960px) {
+	.facebook-comments-system-col-left {
+		width: 100%;
+		margin-right: 0px;
+		float: none;
+	}
+	.facebook-comments-system-col-left-inner {
+		margin-right: 0px;
+	}
+	.facebook-comments-system-col-right {
+		width: 100%;
+		float: none;
+		text-align: center;
+	}
+	.facebook-comments-system-col-right img {
+		margin: 0 auto;
+	}
+}

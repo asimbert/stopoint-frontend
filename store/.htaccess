@@ -1,0 +1,7 @@
+
+RewriteEngine on
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>

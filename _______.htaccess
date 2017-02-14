@@ -1,0 +1,7 @@
+
+# Custom store .htaccess SSL + WordPress
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !^/store/
+        RewriteCond %{HTTP_HOST} ^store.stopoint.com$
+        RewriteRule ^(.*)$ /store/$1
+        # End custom store .htaccess

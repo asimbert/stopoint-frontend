@@ -1,0 +1,17 @@
+[06-Aug-2015 03:53:29 America/Chicago] PHP Fatal error:  Uncaught OAuthException: (#803) Cannot query users by their username (naitik)
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 03:54:52 America/Chicago] PHP Fatal error:  Uncaught OAuthException: (#803) Cannot query users by their username (naitik)
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 03:58:55 America/Chicago] PHP Fatal error:  Uncaught OAuthException: (#803) Cannot query users by their username (naitik)
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 03:59:07 America/Chicago] PHP Fatal error:  Uncaught OAuthException: (#803) Cannot query users by their username (naitik)
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 03:59:49 America/Chicago] PHP Fatal error:  Uncaught OAuthException: (#803) Cannot query users by their username (naitik)
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 03:59:54 America/Chicago] PHP Fatal error:  Uncaught OAuthException: (#803) Cannot query users by their username (naitik)
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 04:00:25 America/Chicago] PHP Fatal error:  Uncaught OAuthException: An active access token must be used to query information about the current user.
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 04:01:28 America/Chicago] PHP Fatal error:  Uncaught OAuthException: An active access token must be used to query information about the current user.
+  thrown in /home4/azaheer/public_html/stopoint/Login_Twitbook/src/base_facebook.php on line 1200
+[06-Aug-2015 04:40:13 America/Chicago] PHP Fatal error:  Call to undefined method Facebook::getSession() in /home4/azaheer/public_html/stopoint/Login_Twitbook/index.php on line 11

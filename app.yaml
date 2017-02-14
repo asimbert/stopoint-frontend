@@ -1,0 +1,114 @@
+application: smart-theory-108719
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: true
+default_expiration: "365d 5h"
+handlers:
+
+
+- url: /css
+  static_dir: css
+  http_headers:
+    Vary: Accept-Encoding
+- url: /images
+  static_dir: images 
+  http_headers:
+    Vary: Accept-Encoding
+- url: /admin/productimages
+  static_dir: admin/productimages
+  http_headers:
+    Vary: Accept-Encoding
+- url: /shippinglabels
+  static_dir: shippinglabels
+- url: /fonts
+  static_dir: fonts
+  http_headers:
+    Vary: Accept-Encoding
+- url: /js
+  static_dir: js
+  http_headers:
+    Vary: Accept-Encoding
+- url: /blog/wp-content/uploads
+  static_dir: blog/wp-content/uploads
+  http_headers:
+    Vary: Accept-Encoding
+- url: /blog/wp-content/uploads/10
+  static_dir: blog/wp-content/uploads/10
+  http_headers:
+    Vary: Accept-Encoding
+- url: /blog/wp-content/uploads/wordpress-popular-posts
+  static_dir: blog/wp-content/uploads/wordpress-popular-posts
+- url: /blog/images
+  static_dir: blog/images
+  http_headers:
+    Vary: Accept-Encoding
+    
+
+- url: /(.+\.(gif|png|jpg|js|css|ttf|xml|txt|html))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg|js|css|ttf|xml|txt|html)$
+  application_readable: true
+
+# Serve php scripts.
+- url: /(.+\.php).*
+  script: \1
+  secure: always
+  
+
+- url: /reminder.php
+  script: reminder.php
+  secure: always
+  
+- url: /expired.php
+  script: expired.php
+  secure: always
+  
+
+- url: /(.*\.(htm$|html$|css$|js$))
+  static_files: blog/\1
+  upload: blog/.*\.(htm$|html$|css$|js$)
+  application_readable: true
+- url: /blog/wp-content/(.*\.(ico$|jpg$|png$|gif$))
+  static_files: blog/wp-content/\1
+  upload: blog/wp-content/.*\.(ico$|jpg$|png$|gif$)
+  application_readable: true
+- url: /blog/(.*\.(ico$|jpg$|png$|gif$))
+  static_files: blog/\1
+  upload: blog/.*\.(ico$|jpg$|png$|gif$)
+  
+ 
+ 
+- url: /blog/wp-admin/(.+)
+  script: blog/wp-admin/\1
+  secure: always
+- url: /blog/wp-admin/
+  script: blog/wp-admin/index.php
+  secure: always
+- url: /blog/wp-login.php
+  script: blog/wp-login.php
+  secure: always
+- url: /blog/wp-cron.php
+  script: blog/wp-cron.php
+  login: admin
+- url: /blog/xmlrpc.php
+  script: blog/xmlrpc.php
+- url: /blog/wp-(.+).php
+  script: blog/wp-\1.php
+- url: /blog(.+)?/?
+  script: blog/index.php
+
+ 
+
+- url: /admin(.+)?/?
+  script: admin/index.php
+  secure: always
+  
+
+- url: /index$|/index.php$
+  script: redirector.php  
+
+- url: /.*
+  script: mod_rewrite.php
+  secure: always
+  

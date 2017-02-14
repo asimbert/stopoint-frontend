@@ -1,0 +1,2 @@
+[22-May-2016 13:26:08 UTC] PHP Catchable fatal error:  Object of class ZeroSpam_Plugin could not be converted to string in /home/stopoint/public_html/blog/wp-admin/includes/plugin.php on line 573
+[22-May-2016 13:29:49 UTC] PHP Catchable fatal error:  Object of class ZeroSpam_Plugin could not be converted to string in /home/stopoint/public_html/blog/wp-admin/includes/plugin.php on line 573
